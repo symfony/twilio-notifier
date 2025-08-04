@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Notifier\Bridge\Twilio\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\Notifier\Bridge\Twilio\TwilioTransport;
 use Symfony\Component\Notifier\Exception\InvalidArgumentException;
@@ -44,9 +45,7 @@ final class TwilioTransportTest extends TransportTestCase
         yield [new DummyMessage()];
     }
 
-    /**
-     * @dataProvider invalidFromProvider
-     */
+    #[DataProvider('invalidFromProvider')]
     public function testInvalidArgumentExceptionIsThrownIfFromIsInvalid(string $from)
     {
         $transport = self::createTransport(null, $from);
@@ -57,9 +56,7 @@ final class TwilioTransportTest extends TransportTestCase
         $transport->send(new SmsMessage('+33612345678', 'Hello!'));
     }
 
-    /**
-     * @dataProvider invalidFromProvider
-     */
+    #[DataProvider('invalidFromProvider')]
     public function testInvalidArgumentExceptionIsThrownIfSmsMessageFromIsInvalid(string $from)
     {
         $transport = $this->createTransport();
@@ -81,9 +78,7 @@ final class TwilioTransportTest extends TransportTestCase
         yield 'phone number to short' => ['+1'];
     }
 
-    /**
-     * @dataProvider validFromProvider
-     */
+    #[DataProvider('validFromProvider')]
     public function testNoInvalidArgumentExceptionIsThrownIfFromIsValid(string $from)
     {
         $message = new SmsMessage('+33612345678', 'Hello!');
