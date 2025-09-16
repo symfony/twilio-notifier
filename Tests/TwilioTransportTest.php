@@ -146,5 +146,21 @@ final class TwilioTransportTest extends TransportTestCase
         yield ['+1123456789123'];
         yield ['+11234567891234'];
         yield ['+112345678912345'];
+
+        // whatsapp
+        yield ['whatsapp:+11'];
+        yield ['whatsapp:+112'];
+        yield ['whatsapp:+1123'];
+        yield ['whatsapp:+11234'];
+        yield ['whatsapp:+112345'];
+        yield ['whatsapp:+1123456'];
+        yield ['whatsapp:+11234567'];
+        yield ['whatsapp:+112345678'];
+        yield ['whatsapp:+1123456789'];
+        yield ['whatsapp:+11234567891'];
+        yield ['whatsapp:+112345678912'];
+        yield ['whatsapp:+1123456789123'];
+        yield ['whatsapp:+11234567891234'];
+        yield ['whatsapp:+112345678912345'];
     }
 }
